@@ -9,39 +9,53 @@
 </head>
 <body>
     <!-- Navigation -->
-    <header class="listings-header">
+     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html" class="logo">Clycle</a>
             </div>
-            <div class="search-container">
-                <input 
-                    type="search" 
-                    id="search-input" 
-                    placeholder="Search for items..." 
-                    class="search-input"
-                    aria-label="Search products"
-                >
-                <button class="search-btn" aria-label="Search">🔍</button>
-            </div>
-            <div class="nav-icons">
-                <a href="wishlist.html" class="nav-icon" aria-label="Wishlist">
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="listings.html" class="nav-link active">Browse</a>
+                </li>
+                <li class="nav-item">
+                    <a href="repair-reuse.html" class="nav-link">Post Item</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="auth.html" class="nav-link">Sign In</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="wishlist.html" class="nav-icon" aria-label="Wishlist">
                     ❤️ <span class="badge" id="wishlist-badge">0</span>
-                </a>
-                <a href="cart.html" class="nav-icon" aria-label="Shopping Cart">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="cart.html" class="nav-icon" aria-label="Shopping Cart">
                     🛒 <span class="badge" id="cart-badge">0</span>
                 </a>
-                <a href="profile.html" class="profile-avatar" aria-label="User Profile">
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="profile-avatar" aria-label="User Profile">
                     <img src="https://via.placeholder.com/40x40?text=User" alt="Profile" class="avatar-small">
                 </a>
-            </div>
+                </li>
+
+            </ul>
             <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
         </div>
-    </header>
+    </nav>
+     
+    <header class="listings-header">
 
     <!-- Filters and Controls -->
     <section class="filters-section">

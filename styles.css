@@ -831,6 +831,9 @@ p {
   padding: var(--spacing-xl) 0;
   border-bottom: 1px solid var(--gray-200);
   box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index:1;
+  margin-top:80px;
 }
 
 .filters-container {
@@ -1441,9 +1444,10 @@ p {
 .listings-header {
   background: var(--white);
   box-shadow: var(--shadow-sm);
-  position: sticky;
+  position:relative;
   top: 70px;
   z-index: 999;
+  margin-top: 80px;
 }
 
 .search-container {
