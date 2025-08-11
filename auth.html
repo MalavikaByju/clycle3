@@ -10,31 +10,257 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html" class="logo">Clycle</a>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="listings.html" class="nav-link">Browse</a>
-                </li>
-                <li class="nav-item">
-                    <a href="repair-reuse.html" class="nav-link">Post Item</a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.html#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="index.html" class="logo">Clycle</a>
         </div>
-    </nav>
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link" data-page="home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="listings.html" class="nav-link" data-page="browse">Browse</a>
+            </li>
+            <li class="nav-item">
+                <a href="repair-reuse.html" class="nav-link" data-page="post">Post Item</a>
+            </li>
+            <li class="nav-item">
+                <a href="index.html#contact" class="nav-link" data-page="contact">Contact</a>
+            </li>
+        </ul>
+        <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" tabindex="0" role="button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>
+
+<script>
+// JavaScript to handle active states and smooth interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    // Set active link based on current page
+    function setActiveLink() {
+        const currentPath = window.location.pathname;
+        const currentPage = window.location.href;
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            
+            // Check if link matches current page
+            if (link.href === currentPage || 
+                (currentPath.includes('index.html') && link.dataset.page === 'home') ||
+                (currentPath.includes('listings.html') && link.dataset.page === 'browse') ||
+                (currentPath.includes('repair-reuse.html') && link.dataset.page === 'post')) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // Handle hamburger menu toggle
+    function toggleMobileMenu() {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    }
+    
+    // Add event listeners
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMobileMenu);
+        hamburger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMobileMenu();
+            }
+        });
+    }
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navMenu && hamburger && 
+            !navMenu.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+    
+    // Handle smooth scrolling for anchor links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Close mobile menu
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            
+            // Handle anchor links (like #contact)
+            if (this.href.includes('#')) {
+                e.preventDefault();
+                const targetId = this.href.split('#')[1];
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+    
+    // Set initial active state
+    setActiveLink();
+    
+    // Handle scroll effects for navbar
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        // Hide/show navbar on scroll (optional)
+        if (window.scrollY > lastScrollY && window.scrollY > 100) {
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            navbar.style.transform = 'translateY(0)';
+        }
+        lastScrollY = window.scrollY;
+    });
+});
+</script>
+
+<style>
+/* Essential CSS for the navigation fixes */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 70px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transition: left 0.3s ease;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Ensure body has top margin to account for fixed navbar */
+body {
+    margin-top: 70px;
+}
+</style>
 
     <!-- Auth Section -->
     <section class="auth-section">
