@@ -200,6 +200,76 @@ p {
   line-height: var(--leading-relaxed);
 }
 
+/* Floating Background Elements */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.float-item {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--primary-olive), var(--secondary-green));
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: float 20s linear infinite;
+    box-shadow: 0 4px 20px rgba(141, 151, 88, 0.3);
+}
+
+@keyframes float {
+    0% { 
+        transform: translateY(100vh) rotate(0deg) scale(0.5); 
+        opacity: 0;
+    }
+    10% { opacity: 0.25; }
+    50% { opacity: 0.3; }
+    90% { opacity: 0.25; }
+    100% { 
+        transform: translateY(-100px) rotate(360deg) scale(1.2); 
+        opacity: 0;
+    }
+}
+
+@keyframes floatBackground {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -30px) rotate(120deg); }
+    66% { transform: translate(-20px, 20px) rotate(240deg); }
+}
+
+@keyframes shimmerBg {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@keyframes textGlow {
+    0% { 
+        filter: brightness(1); 
+        transform: translateY(0px);
+    }
+    100% { 
+        filter: brightness(1.3) drop-shadow(0 0 25px rgba(141, 151, 88, 0.4)); 
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 /* ===== ENHANCED BUTTONS ===== */
 .btn {
   display: inline-flex;
