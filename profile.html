@@ -200,37 +200,6 @@
             </div>
         </div>
     </div>
-
-<script>
-// Random positioning for floating elements
-document.querySelectorAll('.float-item').forEach((item, index) => {
-    item.style.left = Math.random() * 100 + '%';
-    item.style.animationDelay = Math.random() * 20 + 's';
-    item.style.animationDuration = (12 + Math.random() * 8) + 's';
-    
-    // Random sizes - bigger and more visible
-    const size = 60 + Math.random() * 60;
-    item.style.width = size + 'px';
-    item.style.height = size + 'px';
-    
-    // Add some variety to shapes
-    if (Math.random() > 0.5) {
-        item.style.borderRadius = '20%';
-    }
-});
-
-// Button hover effects
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-        btn.style.transform = 'translateY(-3px) scale(1.05)';
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translateY(0) scale(1)';
-    });
-});
-</script>
-
     <script src="app.js"></script>
 </body>
 </html>
