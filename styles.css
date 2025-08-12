@@ -426,9 +426,14 @@ p {
 }
 
 .hero h1 {
-  font-size: var(--font-size-5xl);
-  margin-bottom: var(--spacing-lg);
-  line-height: var(--leading-tight);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #8D9758, #F1E8C7, #7f5fa8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGlow 3s ease-in-out infinite alternate;
 }
 
 .hero-subtitle {
