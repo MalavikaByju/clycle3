@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+    --primary-olive: #8D9758;
+    --secondary-green: #5E8C63;
+    --accent-purple: #7f5fa8;
+    --warm-beige: #F1E8C7;
+    /* ... your existing variables */
+}
+
 a {
   font-weight: 500;
   color: #646cff;
