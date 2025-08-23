@@ -192,3 +192,38 @@ button:focus-visible {
 .hero h1, .hero p {
     color: white; /* ensures text is visible */
 }
+
+/* ===== Image Gallery with Lightbox ===== */
+.gallery img {
+  width: 150px;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+}
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
