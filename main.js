@@ -19,6 +19,24 @@ document.querySelector('#app').innerHTML = `
       Click on the Vite logo to learn more
     </p>
   </div>
+
+  // ===== Image Gallery Lightbox =====
+const galleryItems = document.querySelectorAll(".gallery-item");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".lightbox .close");
+
+galleryItems.forEach(item => {
+  item.addEventListener("click", () => {
+    lightbox.style.display = "flex";
+    lightboxImg.src = item.src;
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
+
 `
 
 setupCounter(document.querySelector('#counter'))
