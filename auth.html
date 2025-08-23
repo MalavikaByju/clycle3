@@ -36,6 +36,81 @@
     </div>
 </nav>
 
+<!-- Add this to your existing HTML head -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="accessibility.css">
+
+<!-- Add this accessibility panel to your body -->
+<div id="accessibility-panel" class="accessibility-panel">
+    <button id="accessibility-toggle" class="accessibility-toggle" aria-label="Accessibility Options">
+        ⚙️
+    </button>
+    
+    <div id="accessibility-menu" class="accessibility-menu hidden">
+        <h3>Accessibility Options</h3>
+        
+        <!-- Language Selection -->
+        <div class="control-group">
+            <label for="language-select">Language:</label>
+            <select id="language-select" class="control">
+                <option value="en">English</option>
+                <option value="hi">हिंदी (Hindi)</option>
+                <option value="bn">বাংলা (Bengali)</option>
+                <option value="te">తెలుగు (Telugu)</option>
+                <option value="ta">தமிழ் (Tamil)</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="zh">中文</option>
+            </select>
+        </div>
+        
+        <!-- Theme Toggle -->
+        <div class="control-group">
+            <label for="theme-toggle">Theme:</label>
+            <button id="theme-toggle" class="control">🌙 Dark Mode</button>
+        </div>
+        
+        <!-- Font Size -->
+        <div class="control-group">
+            <label for="font-size">Font Size:</label>
+            <div class="font-controls">
+                <button id="decrease-font" class="control">A-</button>
+                <span id="font-size-display">100%</span>
+                <button id="increase-font" class="control">A+</button>
+                <button id="reset-font" class="control">Reset</button>
+            </div>
+        </div>
+        
+        <!-- Additional Accessibility Features -->
+        <div class="control-group">
+            <label>
+                <input type="checkbox" id="high-contrast"> High Contrast
+            </label>
+        </div>
+        
+        <div class="control-group">
+            <label>
+                <input type="checkbox" id="focus-outline"> Enhanced Focus
+            </label>
+        </div>
+        
+        <div class="control-group">
+            <label>
+                <input type="checkbox" id="reduce-motion"> Reduce Motion
+            </label>
+        </div>
+    </div>
+</div>
+    
+<nav>
+    <a href="#" data-translate="home">Home</a>
+    <a href="#" data-translate="about">About</a>
+    <a href="#" data-translate="contact">Contact</a>
+</nav>
+
+<h1 data-translate="welcome">Welcome</h1>
+    
 <script>
 // JavaScript to handle active states and smooth interactions
 document.addEventListener('DOMContentLoaded', function() {
