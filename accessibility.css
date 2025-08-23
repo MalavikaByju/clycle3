@@ -1,0 +1,155 @@
+/* Accessibility Panel Styles */
+.accessibility-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.accessibility-toggle {
+    background: #007cba;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.accessibility-toggle:hover {
+    background: #005a87;
+    transform: scale(1.1);
+}
+
+.accessibility-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    border: 2px solid #007cba;
+    border-radius: 8px;
+    padding: 20px;
+    min-width: 300px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.accessibility-menu.hidden {
+    display: none;
+}
+
+.control-group {
+    margin-bottom: 15px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.control {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 2px;
+}
+
+.font-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.font-controls button {
+    min-width: 40px;
+}
+
+#font-size-display {
+    font-weight: bold;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Theme Styles */
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-theme .accessibility-menu {
+    background: #1e1e1e;
+    color: white;
+    border-color: #333;
+}
+
+body.dark-theme .control {
+    background: #2d2d2d;
+    color: white;
+    border-color: #555;
+}
+
+/* High Contrast Mode */
+body.high-contrast {
+    background: black !important;
+    color: yellow !important;
+}
+
+body.high-contrast * {
+    background: black !important;
+    color: yellow !important;
+    border-color: yellow !important;
+}
+
+body.high-contrast a {
+    color: #00ff00 !important;
+}
+
+body.high-contrast button {
+    background: yellow !important;
+    color: black !important;
+}
+
+/* Enhanced Focus */
+body.enhanced-focus *:focus {
+    outline: 3px solid #ff6600 !important;
+    outline-offset: 2px !important;
+}
+
+/* Reduce Motion */
+body.reduce-motion * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+/* Font Size Classes */
+.font-small { font-size: 0.8em; }
+.font-normal { font-size: 1em; }
+.font-large { font-size: 1.2em; }
+.font-xl { font-size: 1.4em; }
+.font-xxl { font-size: 1.6em; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .accessibility-panel {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .accessibility-menu {
+        min-width: 250px;
+        right: -50px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .accessibility-panel {
+        display: none;
+    }
+}
