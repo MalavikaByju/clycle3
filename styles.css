@@ -1,4 +1,19 @@
 /* ===== GLOBAL STYLES ===== */
+
+/* 🌞 Light earthy mode (default) */
+:root {
+  --bg-color: #fdf6e3;     /* light earthy background */
+  --text-color: #333;      /* dark earthy text */
+  --accent-color: #8d6e63; /* earthy accent */
+}
+
+/* 🌙 Dark earthy mode */
+body.dark-mode {
+  --bg-color: #2b2b2b;     /* dark earthy background */
+  --text-color: #f5f5dc;   /* beige earthy text */
+  --accent-color: #a1887f; /* earthy accent */
+}
+
 :root {
   /* Color Palette */
   --primary-green: #8D9758;
